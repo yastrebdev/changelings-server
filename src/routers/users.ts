@@ -1,5 +1,7 @@
 import express from 'express'
-import { register } from '../controllers/users'
+import users from '@controllers/users'
+
+const { register } = users
 
 const router = express.Router()
 

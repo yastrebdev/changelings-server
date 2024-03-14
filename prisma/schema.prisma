@@ -11,15 +11,26 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  name      String
-  password  String
-  table     Table[]   
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String  @unique
+  password String
+  status   String
+  table    Table[]
 }
 
 model Table {
-  id          Int     @id @default(autoincrement())
-  author      User    @relation(fields: [authorId], references: [id])
-  authorId    Int
+  id            Int      @id @default(autoincrement())
+  date          DateTime @default(now())
+  field         String
+  complexity    String
+  timeDirection String
+  timeGiven     DateTime
+  timeUsed      DateTime
+  actionsGiven  Int
+  actionsUsed   Int
+  score         Int
+  rankingPlace  Int
+  author        User     @relation(fields: [authorId], references: [id])
+  authorId      Int
 }
