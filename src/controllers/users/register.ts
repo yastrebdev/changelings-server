@@ -1,3 +1,5 @@
+import type { Response } from 'express'
+import type { RequestType } from '../../types/RecResTypes'
 import { prisma } from '../../../prisma/prisma-client'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -8,7 +10,7 @@ import jwt from 'jsonwebtoken'
  * @access Pablic
  */
 
-const register = async (req, res) => {
+const register = async (req: RequestType, res: Response) => {
     try {
         const { email, password, name } = req.body
 
@@ -38,7 +40,6 @@ const register = async (req, res) => {
                 email,
                 name,
                 password: hashedPassword,
-                status: 'participant',
             },
         })
 

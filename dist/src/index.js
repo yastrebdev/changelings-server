@@ -6,7 +6,7 @@ const express_1 = tslib_1.__importDefault(require("express"));
 const cors_1 = tslib_1.__importDefault(require("cors"));
 const helmet_1 = tslib_1.__importDefault(require("helmet"));
 const validateEnv_1 = tslib_1.__importDefault(require("../utils/validateEnv"));
-const users_1 = tslib_1.__importDefault(require("./routes/users"));
+const users_1 = tslib_1.__importDefault(require("@routers/users"));
 dotenv.config();
 (0, validateEnv_1.default)();
 const app = (0, express_1.default)();

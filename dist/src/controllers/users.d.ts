@@ -3,4 +3,4 @@
  * @desc Регистрация
  * @access Pablic
  */
-export declare const register: (req: any, res: any) => Promise<any>;
+export declare const register: (req: any, res: any) => Promise<any>
