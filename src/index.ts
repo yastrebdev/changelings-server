@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import validateEnv from '@utils/validateEnv'
-import router from './routes/users'
+import router from '@routers/users'
 
 dotenv.config()
 

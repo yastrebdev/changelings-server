@@ -1,4 +1,4 @@
-import { prisma } from '../../prisma/prisma-client'
+import { prisma } from '../../../prisma/prisma-client'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken'
  * @access Pablic
  */
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
     try {
         const { email, password, name } = req.body
 
@@ -38,6 +38,7 @@ export const register = async (req, res) => {
                 email,
                 name,
                 password: hashedPassword,
+                status: 'participant',
             },
         })
 
@@ -59,3 +60,5 @@ export const register = async (req, res) => {
         return res.status(500).json({ message: 'Что-то пошло не так' })
     }
 }
+
+export default register

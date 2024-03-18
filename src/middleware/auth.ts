@@ -1,13 +1,19 @@
+import type { Request, Response, NextFunction } from 'express';
 import type { Secret, JwtPayload } from 'jsonwebtoken'
 import { prisma } from '../../prisma/prisma-client'
+import { User } from '../types/UserTypes';
 import jwt from 'jsonwebtoken'
 
-export const auth = async (req, res, next) => {
+interface RequestType extends Request {
+    user: User | null
+}
+
+export const auth = async (req: RequestType, res: Response, next: NextFunction): Promise<void> => {
     try {
         let token = req.headers.authorization?.split(' ')[1]
 
         const decoded
-            = jwt.verify(token, process.env.JWT_SECRET as Secret) as JwtPayload 
+            = jwt.verify(token ? token : '', process.env.JWT_SECRET as Secret) as JwtPayload 
 
         const user = await prisma.user.findUnique({
             where: {

@@ -1,37 +1,31 @@
 {
     "compilerOptions": {
-        "target": "es2020",
-        "lib": ["es2020"],
-        "typeRoots": ["node_modules/@types"],
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node",
-        "module": "commonjs",
-        "pretty": true,
-        "sourceMap": true,
-        "declaration": true,
-        "outDir": "dist",
-        "allowJs": true,
-        "noEmit": false,
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "importHelpers": true,
-        "baseUrl": "src",
+        "target": "es2020",    // specifies the version of js that ts should generate
+        "lib": ["es2020"],     // specifies the set of js libraries and runtime environments that will be available when ts is compiled
+        "typeRoots": ["node_modules/@types"],    // specifies the directories in which ts will look for type declarations
+        "allowSyntheticDefaultImports": true,    // determines whether ts should allow imports of synthetic (artificial) default values from modules that only export named values
+        "experimentalDecorators": true,    // enable or disable decorator syntax
+        "emitDecoratorMetadata": true,    // switch decorator metadata on or off
+        "forceConsistentCasingInFileNames": true,    // allows to control the severity of case consistency checking in file names
+        "moduleResolution": "node",    // determines how ts will resolve module imports
+        "module": "commonjs",    // defines in which format JavaScript modules should be generated
+        "pretty": true,    // control of compiler output formatting
+        "sourceMap": true,    // managing the creation of source code maps
+        "declaration": true,    // specifies whether type declaration files should be created during compilation
+        "outDir": "dist",    // directory of compiled js files
+        "allowJs": true,    // allows to compiled js files
+        "noEmit": false,    // allows to control the process of generated js files
+        "esModuleInterop": true,    // allows to simplify interaction between cjs and es modules
+        "resolveJsonModule": true,    // allows to import json files into your code
+        "importHelpers": true,    // control whether auxiliary functions from external modules will be used during compilation 
+        "baseUrl": "src",    // allows to set the base path for resolving relative modules
         "paths": {
             "@/*": ["*"],
-            "@config/*": ["config/*"],
             "@controllers/*": ["controllers/*"],
-            "@databases/*": ["databases/*"],
-            "@dtos/*": ["dtos/*"],
-            "@exceptions/*": ["exceptions/*"],
-            "@interfaces/*": ["interfaces/*"],
             "@middlewares/*": ["middlewares/*"],
-            "@models/*": ["models/*"],
             "@routers/*": ["routers/*"],
-            "@services/*": ["services/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@types/*": ["types/*"],
         }
     },
     "include": ["src//*.ts", "src//*.json", ".env"],
